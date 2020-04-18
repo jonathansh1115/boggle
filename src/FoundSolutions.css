@@ -1,12 +1,17 @@
 .Found-solutions-list {
-  text-align: center;
+    text-align: center;
 }
 
 .Found-solutions-list ul {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .Found-solutions-list li {
-  font-size: 14pt;
-  line-height: 20pt;
+    font-size: 14pt;
+    line-height: 20pt;
+}
+
+ul.ans_box {
+    height: 50vh;
+    overflow: auto;
 }

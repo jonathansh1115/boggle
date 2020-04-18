@@ -20,7 +20,8 @@ function Board({board}) {
         {Object.keys(rowObj).map((letterKey) => {
           return tile(letterKey + id, rowObj[letterKey])
         })}
-      </Grid>);
+      </Grid>
+    );
   }
 
   function gridOfRows(board) {
@@ -29,7 +30,8 @@ function Board({board}) {
         {Object.keys(board).map((rowKey) => {
           return rowOfTiles(rowKey, board[rowKey])
         })}
-      </Grid>);
+      </Grid>
+    );
   }
 
   return (

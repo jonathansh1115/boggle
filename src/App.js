@@ -5,8 +5,13 @@ import GuessInput from './GuessInput.js';
 import FoundSolutions from './FoundSolutions.js';
 import ToggleGameState from './ToggleGameState.js';
 import './App.css';
-import {GAME_STATE} from './game_state_enum.js';
-import {RandomGrid} from './random_grid.js';
+import { GAME_STATE } from './game_state_enum.js';
+import { RandomGrid } from './random_grid.js';
+
+// components
+import Timer from './components/timer.jsx'
+
+
 
 function App() {
 
@@ -14,6 +19,7 @@ function App() {
   const [foundSolutions, setFoundSolutions] = useState([]);
   const [gameState, setGameState] = useState(GAME_STATE.BEFORE);
   const [grid, setGrid] = useState([]);
+  const [buttonText, setButtonText] = useState('Start a new game!')
 
   // useEffect will trigger when the array items in the second argument are
   // updated so whenever grid is updated, we will recompute the solutions
@@ -39,17 +45,21 @@ function App() {
 
   return (
     <div className="App">
-      <ToggleGameState gameState={gameState}
-                       setGameState={(state) => setGameState(state)} />
+
+      <ToggleGameState buttonText={buttonText} setButtonText={setButtonText} gameState={gameState} setGameState={setGameState} />
+      
+
       { gameState === GAME_STATE.IN_PROGRESS &&
         <div>
+          <Timer setGameState={setGameState} setButtonText={setButtonText} />
           <Board board={grid} />
           <GuessInput allSolutions={allSolutions}
                       foundSolutions={foundSolutions}
-                      correctAnswerCallback={(answer) => correctAnswerFound(answer)}/>
+                      correctAnswerCallback={(answer) => correctAnswerFound(answer)} />
           <FoundSolutions headerText="Solutions you've found" words={foundSolutions} />
         </div>
       }
+      
       { gameState === GAME_STATE.ENDED &&
         <div>
           <Board board={grid} />

@@ -3,9 +3,16 @@ import Button from "@material-ui/core/Button";
 import {GAME_STATE} from './game_state_enum.js';
 import './ToggleGameState.css';
 
-function ToggleGameState({gameState, setGameState}) {
+function ToggleGameState(props) {
 
-  const [buttonText, setButtonText] = useState("Start a new game!");
+  const {
+      buttonText, 
+      setButtonText, 
+      gameState, 
+      setGameState
+    } = props
+
+  // const [buttonText, setButtonText] = useState("Start a new game!");
 
   function updateGameState() {
     if (gameState === GAME_STATE.BEFORE || gameState === GAME_STATE.ENDED) {

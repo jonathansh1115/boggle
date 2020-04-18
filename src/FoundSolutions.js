@@ -8,7 +8,7 @@ function FoundSolutions({words, headerText}) {
       {words.length > 0 &&
         <h4>{headerText}: {words.length}</h4>
       }
-      <ul>
+      <ul className='ans_box'>
         {words.map((solution) => {return <li key={solution}>{solution}</li>})}
       </ul>
     </div>

@@ -3,4 +3,4 @@ const GAME_STATE = {
     IN_PROGRESS: 'in_progress',
     ENDED: 'ended',
 }
-export {GAME_STATE};
+export { GAME_STATE };
